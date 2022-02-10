@@ -7,19 +7,11 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'description', 'id']
 
 
-@admin.register(models.Tag)
-class TagAdmin(admin.ModelAdmin):
-    list_display = ['name']
-
 
 @admin.register(models.Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'author', 'time_create', 'id']
-
-
-@admin.register(models.Instruction)
 class InstructionAdmin(admin.ModelAdmin):
-    list_display = ['name', 'post', 'time_create', 'time_update', 'id']
+    list_display = ['author', 'name', 'category', 'time_create', 'time_update', 'id']
+    prepopulated_fields = {"slug": ("name",)}
 
 
 @admin.register(models.Comment)
