@@ -18,3 +18,37 @@
         font-size: 3.5rem;
     }
 }
+
+
+.code_box {
+    float: left;
+    width: calc(100%);
+    margin: 0 0 10px 10px;
+    background-color: rgba(255, 255, 128, .5);
+}
+
+
+.code_box .title_code {
+    float: left;
+    width: calc(100%);
+    padding: 5px;
+    color: #333333;
+    font-family: "Open Sans", Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.code_box pre {
+    float: left;
+    width: calc(100%);
+}
+
+code {
+    font-size: 16px;
+    color: #888888;
+    font-weight: 300;
+    font-family: "PT Mono", Courier New, Tahoma, sans-serif;
+}
+
+code b {
+    font-weight: 300;
+}

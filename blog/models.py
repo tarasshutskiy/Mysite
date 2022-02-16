@@ -18,6 +18,8 @@ class Category(models.Model):
         return self.name
 
 
+    def get_absolute_url(self):
+        return reverse('post_list_view', kwargs={'slug': self.slug})
 
 
 class Post(models.Model):
@@ -47,7 +49,8 @@ class Post(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('post_detail', kwargs={'slug': self.slug})
+        return reverse('post_detail_view', kwargs={'category': self.category.slug, 'slug': self.slug})
+
 
 
 class Comment(models.Model):
