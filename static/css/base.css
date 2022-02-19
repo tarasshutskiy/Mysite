@@ -24,7 +24,7 @@
     float: left;
     width: calc(100%);
     margin: 0 0 10px 10px;
-    background-color: rgba(255, 255, 128, .5);
+    background-color: #fff;
 }
 
 
@@ -32,7 +32,7 @@
     float: left;
     width: calc(100%);
     padding: 5px;
-    color: #333333;
+    color: #fff;
     font-family: "Open Sans", Tahoma, sans-serif;
     font-size: 12px;
 }
@@ -51,4 +51,18 @@ code {
 
 code b {
     font-weight: 300;
+
 }
+
+header img {
+    width: 80px;
+    float: left;
+}
+
+header .logo {
+    font-size: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: 10px;
+

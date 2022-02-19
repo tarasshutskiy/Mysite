@@ -7,6 +7,7 @@ from django.urls import reverse
 class Category(models.Model):
     """Категорії"""
     name = models.CharField('Категорія', max_length=100)
+    image = models.ImageField('Зображення Категорії', upload_to='image_category/', null=True)
     description = models.TextField('Описання')
     slug = models.SlugField('Slug', max_length=200, unique=True)
 
@@ -19,7 +20,7 @@ class Category(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('post_list_view', kwargs={'slug': self.slug})
+        return reverse('post_list', kwargs={'slug': self.slug})
 
 
 class Post(models.Model):
@@ -49,7 +50,7 @@ class Post(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('post_detail_view', kwargs={'category': self.category.slug, 'slug': self.slug})
+        return reverse('post_detail', kwargs={'category': self.category.slug, 'slug': self.slug})
 
 
 

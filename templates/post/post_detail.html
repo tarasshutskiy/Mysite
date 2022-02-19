@@ -5,10 +5,12 @@
 
 
 {% block content %}
+<hr class="featurette-divider">
+
  <div class="container marketing">
  <div class="row featurette">
      <div class="col-md-5 order-md-1">
-            <img src="{{post_detail_view.image_cod.url}}" width="450" height="450">
+            <img src="{{post_detail.image_cod.url}}" width="450" height="450">
         </div>
       <div class="col-md-7">
         <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
@@ -21,11 +23,11 @@
 
     <div class="row featurette">
         <div class="col-md-5 order-md-1">
-            <img src="{{post_detail_view.image_res.url}}" width="450" height="450">
+            <img src="{{post_detail.image_res.url}}" width="450" height="450">
         </div>
         <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">{{ post_detail_view.description }} <span class="text-muted">See for yourself.</span></h2>
-        <div class = "code_box"> <div class = "title_code bg-dark text-light text-center"><h3>Приклад</h3></div> <pre><code class = "xml">{{post_detail_view.description_cod}}</code></pre> </div>
+            <h2 class="featurette-heading">{{ post_detail.description }} <span class="text-muted">See for yourself.</span></h2>
+        <div class = "code_box"> <div class = "title_code bg-dark text-light text-center"><h3>Приклад</h3></div> <pre><code class = "">{{post_detail.description_cod}}</code></pre> </div>
         </div>
     </div>
    <hr class="featurette-divider">
