@@ -22,24 +22,34 @@
 
 .code_box {
     float: left;
-    width: calc(100%);
+
     margin: 0 0 10px 10px;
-    background-color: #fff;
+    background-color: #eb5959;
+    border-radius: 10px 10px 10px 10px;
 }
 
 
 .code_box .title_code {
     float: left;
     width: calc(100%);
-    padding: 5px;
+    padding: 10px;
+    margin: 0px 10px 0 0;
+    background-color: #888888;
     color: #fff;
     font-family: "Open Sans", Tahoma, sans-serif;
-    font-size: 12px;
+    font-size: 10px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .code_box pre {
     float: left;
     width: calc(100%);
+    position: relative;
+    font-left: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+
 }
 
 code {
@@ -65,4 +75,50 @@ header .logo {
     font-weight: bold;
     position: relative;
     top: 10px;
+}
+
+main .container {
+    margin-top: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    top: 50px;
+}
+
+.python {
+    text-align: left;
+    float: left;
+    position: relative;
+    color: #fff;
+}
+
+
+.form-control{
+    float: left;
+    text-align: center;
+    width: 80px
+
+}
+
+
+.form-label{
+    float: left;
+
+    width: calc(100%);
+
+    font-left: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+
+}
+
+#box{
+    background: #888888;
+}
+
+.bot{
+    margin-top:20px;
+}
 

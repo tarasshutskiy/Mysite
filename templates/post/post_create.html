@@ -7,13 +7,25 @@
 {% block content %}
 
 
-    <div class="container text-center">
+    <div class="container">
       <h1>NEW POST</h1>
+
       <form action="{% url 'post_create' %}" method="post"  enctype="multipart/form-data">
+
           {% csrf_token %}
 
-          {{form.as_p}}
-          <input type="submit" value="Submit">
+            <div class="form-error">{{ form.non_field_errors }}</div>
+             <div>
+            {% for f in form %}
+          <p ><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+
+            {% endfor %}
+
+            </div><br>
+          <div>
+            <button type="submit">Добавить</button>
+          </div>
       </form>
     </div>
 
