@@ -36,10 +36,11 @@ class PostDetailView(DetailView):
 
 class CategoryListView(ListView):
     """Список категорій"""
-    model = Category
+    model = Post
     queryset = Category.objects.all()
-    context_object_name = 'categories'
-    template_name = 'base/base.html'
+    context_object_name = 'category'
+    template_name = 'category/list_category.html'
+
 
 
 

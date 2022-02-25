@@ -7,9 +7,7 @@ from django.urls import reverse
 class Category(models.Model):
     """Категорії"""
     name = models.CharField('Категорія', max_length=100)
-    image = models.ImageField('Зображення Категорії', upload_to='image_category/', null=True)
-    description = models.TextField('Описання')
-    slug = models.SlugField('Slug', max_length=200, unique=True)
+    slug = models.SlugField('Slug', max_length=200, unique=True, db_index=True)
 
     class Meta:
         verbose_name = "Категорія"
@@ -29,7 +27,7 @@ class Post(models.Model):
     """Модель для поста"""
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     name = models.CharField("Пост", max_length=100)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, db_index=True)
     image_post = models.ImageField('Зображення поста', upload_to='image_post/')
     image_cod = models.ImageField('Зображення коду', upload_to='image_cod/')
     image_res = models.ImageField('Зображення результату', upload_to='image_res/')
@@ -57,23 +55,3 @@ class Post(models.Model):
 
 
 
-class Comment(models.Model):
-    name = models.CharField("Коментарій", max_length=100)
-    email = models.CharField('Пошта', max_length=100)
-    website = models.CharField('Сайт', max_length=100)
-    message = models.TextField('Повідомлення', max_length=500)
-    post = models.ForeignKey(
-        Post,
-        related_name='comment',
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-    )
-
-
-    class Meta:
-        verbose_name = "Коментарій"
-        verbose_name_plural = "Коментарії"
-
-    def __str__(self):
-        return self.name
