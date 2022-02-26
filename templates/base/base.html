@@ -1,6 +1,6 @@
 <!doctype html>
 {% load static %}
-{% load category_tag %}
+{% load category_tags %}
 <html lang="en">
   <head>
  <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -16,13 +16,14 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <a href="{% url 'post_create' %}" class="btn btn-primary my-2">NEW POST</a>
     <a href="{% url 'category_create' %}" class="btn btn-primary my-2">NEW Category</a>
-  {% get_categories as cats %}
+  {% get_list_category as categories %}
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
     Категорії
   </button>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  {% show_categories %}
+    {% get_categories %}
+
   </div>
 
     <a class="p-2 text-white" href="#">Pricing</a>
