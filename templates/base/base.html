@@ -1,36 +1,21 @@
 <!doctype html>
 {% load static %}
-{% load category_tags %}
+
 <html lang="en">
   <head>
- <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   </head>
   <body class="bg-dark text-white">
 
+
+{% if request.user.is_authenticated %}
 <header>
-<div class="d-flex flex-column text-white flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'post_list' %}"><img src="{% static 'img/logo.png' %}" alt="Лого"></a><span class="logo">It-Bot</span></h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a href="{% url 'post_create' %}" class="btn btn-primary my-2">NEW POST</a>
-    <a href="{% url 'category_create' %}" class="btn btn-primary my-2">NEW Category</a>
-  {% get_list_category as categories %}
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-    Категорії
-  </button>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    {% get_categories %}
-
-  </div>
-
-    <a class="p-2 text-white" href="#">Pricing</a>
-  </nav>
-  <a class="btn btn-outline-primary" href="#">Sign up</a>
-</div>
+{% include 'base/header.html' %}
 </header>
+{% endif %}
+
 
 
 
@@ -41,6 +26,11 @@
 </main>
 
 
+{% if request.user.is_authenticated %}
+<aside class="features">
+{% include 'base/paginator.html' %}
+</aside>
+{% endif %}
 
 
 

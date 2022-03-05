@@ -8,22 +8,22 @@
 
 
 <div class="container" >
-      <h1>NEW POST</h1>
+      <h1>Нова Категорія</h1><br>
      <div class="form-group " >
       <form action="{% url 'category_create' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
-
             <div class="form-error">{{ form.non_field_errors }}</div>
 
             {% for f in form %}
-          <p id="table"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-            <div class="form-error">{{ f.errors }}</div><br>
-
+          <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
             {% endfor %}
 
-         <button class="btn btn-secondary" type="submit">Добавить</button>
+          <div>
+            <button class="btn btn-primary" type="submit">Створити категорію</button>
           </div>
       </form>
+     </div>
     </div>
 
 

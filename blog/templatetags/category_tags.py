@@ -16,3 +16,5 @@ def get_list_category():
 def get_categories():
     categories = Category.objects.all()
     return {"categories": categories}
+
+

@@ -7,7 +7,7 @@
 {% block content %}
 
 
-
+{% if request.user.is_authenticated %}
 
         <div class="container ">
             <div class="row ">
@@ -19,12 +19,17 @@
                     <img src="{{ post.image_post.url }}" width="100%" height="255">
                         </a>
                         <div class="card-body ">
-                            <p class="card-text clip">{{ post.description }}</p>
+                            <ul class="list-unstyled">
+                                <li><h1 class="card-text clip" style="color: #00FF00;">{{ post.name }}</h1></li>
+                                <li><p class="card-text  text-dark clip">{{ post.category.name }}</p></li>
+                                <li><p class="card-text clip">{{ post.description }}</p></li>
+                            </ul>
                         <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group ">
-                            <button type="button" class="btn btn-sm btn-outline-secondary bg-light"><a href="{{ post.get_absolute_url }}" >View</a></button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary bg-light"><a href="{% url 'post_edit' post.slug %}">Edit</a></button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary bg-light"><a href="{% url 'post_delete' post.slug %}">Delete</a></button>
+
+
+                            <button type="button" class="btn btn-sm btn-outline-secondary" style="background-color: #79F8F8;"><a href="{% url 'post_edit' post.slug %}">Редагувати</a></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" style="background-color: #FF0000;"><a href="{% url 'post_delete' post.slug %}">Видалити</a></button>
                         </div >
                         <small class="text-muted ">{{ post.time_create }}</small>
                         </div>
@@ -35,6 +40,6 @@
             </div>
         </div>
 
-
+{% endif %}
 
 {% endblock %}

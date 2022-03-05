@@ -6,14 +6,14 @@
 {% block content %}
 
     <div class="container">
-      <h1>Delete</h1>
+      <h1>Видалити пост?</h1><br>
 
       <form action="" method="post" >
 
           {% csrf_token %}
-            <p>Delete?</p>
+            <p>Ви <впевнені></впевнені>, що хочете видалити пост?</p>
 
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn btn-danger">Видалити пост</button>
 
       </form>
     </div>
