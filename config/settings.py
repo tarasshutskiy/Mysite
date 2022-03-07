@@ -144,13 +144,6 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-git init
-git add .
-git commit -m "back "
-git remote add origin https://github.com/tarasshutskiy/Mysite.git
-git branch -M main
-git push -u origin main
-
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
