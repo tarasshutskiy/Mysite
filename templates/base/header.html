@@ -5,9 +5,13 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
+                {% if request.user.is_staff %}
+                <div class="admin-panel align-item-center">
+                    <a href="/admin" class="btn btn-danger"><i class="bi bi-person-badge"></i>Admin</a>
+                </div>
+                {% endif %}
                 {% if request.user.is_authenticated %}
               <a class="btn btn-success" href="{% url 'logout' %}"><i class="bi bi-person-circle"></i> {{user.username}}</a>
-
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
                 {% get_list_category as categories %}

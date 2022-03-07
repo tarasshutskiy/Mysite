@@ -1,5 +1,5 @@
 <li><a class="dropdown-item" href="{% url 'post_list' %}"><i class="bi bi-check-all">Всі Категорії</i></a></li>
 <li><hr class="dropdown-divider"></li>
-{% for cats in categories %}
-    <li><a class="dropdown-item" href="{{ cats.get_absolute_url  }}">{{cats.name}}</a></li>
+{% for category in categories %}
+    <li><a class="dropdown-item" href="{{ category.get_absolute_url  }}">{{category.name}}</a></li>
 {% endfor %}

@@ -20,10 +20,10 @@ class PostListView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         if query:
-            post_list = Post.objects.filter(name__icontains=query)
+            post_list = Post.objects.filter(name__icontains=query).select_related('category')
             return post_list
         else:
-            post_list = Post.objects.all()
+            post_list = Post.objects.all().select_related('category')
             return post_list
 
 
