@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w(cyfspij@!_y#t)9zvj3q$^41ofx$9y=(=ugbkh95ikc+*m!_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['mysiteblogdjango.herokuapp.com']
+ALLOWED_HOSTS = ['mysiteblogdjango.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -149,4 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = [
     "mysiteblogdjango.herokuapp.com",
+    '127.0.0.1'
 ]
