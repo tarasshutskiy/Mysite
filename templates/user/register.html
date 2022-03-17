@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container text-center" id="reg" >
+    <img src="{% static 'img/reg.jpg' %}"  width="312" height="212">
+    <h1>Реєстрація</h1>
+    <div class="form-group " >
+        <form  method="post" >
+            {% csrf_token %}
+            {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}:</label><br>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+            <br>
+            {% endfor %}
+            <button class="btn btn-success" type="submit">Зареєструватися</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django import template
-from blog.models import *
+
+from blog.models import Category
 
 register = template.Library()
 
@@ -12,9 +13,8 @@ def get_list_category():
     return Category.objects.all()
 
 
-@register.inclusion_tag('category/categories_tags.html')
-def get_categories():
-    categories = Category.objects.all()
-    return {"categories": categories}
+
+
+
 
 

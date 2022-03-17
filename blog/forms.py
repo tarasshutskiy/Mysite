@@ -2,16 +2,16 @@ from .models import *
 from django.forms import ModelForm, TextInput, Textarea
 from django.core.exceptions import ValidationError
 
+
 class AddPostForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['author'].empty_label = "Автор"
         self.fields['category'].empty_label = "Виберіть категорію"
 
 
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ('name', 'slug', 'description', 'description_cod', 'category', 'is_published')
         widgets = {
             'name': TextInput(attrs={
                 'class': 'form-control',
@@ -77,12 +77,11 @@ class AddCategoryForm(ModelForm):
 class UpdatePostForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['author'].empty_label = "Автор"
         self.fields['category'].empty_label = "Виберіть категорію"
 
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ('name', 'slug', 'description', 'description_cod', 'category', 'is_published')
         widgets = {
             'name': TextInput(attrs={
                 'class': 'form-control',
@@ -112,3 +111,25 @@ class UpdatePostForm(ModelForm):
         if len(name) > 200:
             raise ValidationError('Назва перевищує 200 символів')
         return name
+
+
+class AddCommentForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
+    class Meta:
+        model = Comment
+        fields = ('comment',)
+        widgets = {
+            'comment': Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Вкажіть коментарій',
+            }),
+        }
+
+
+
+
+

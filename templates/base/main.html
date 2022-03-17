@@ -1,0 +1,42 @@
+{% load static %}
+{% load category_tags %}
+
+
+
+
+
+  <div class="container">
+      <div class="row centered">
+        <h4><i class="fa fa-clipboard" aria-hidden="true"></i>Пости<i class="fa fa-clipboard" aria-hidden="true"></i></h4>
+        <br>
+        <br>
+        <br>
+        {% for post in post_list %}
+        <div class="col-lg-4 truncate-text">
+          <div class="tilt">
+            <a href="{{ post.get_absolute_url }}"><img  src="{% static 'img/logo.png' %}" alt="" width="200" height="200"></a>
+          </div>
+          <h2>{{ post.name }}</h2>
+          {% if request.user.is_authenticated %}
+          {% if request.user == post.author or request.user.is_staff %}
+          <div class="btn-group text-center">
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-info" ><a class="text-dark" href="{% url 'post_edit' post.slug %}">Редагувати</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-danger"><a  class="text-dark" href="{% url 'post_delete' post.slug %}">Видалити</a></button>
+          </div >
+          <br>
+          <br>
+          {% else %}
+          <div class="btn-group text-center">
+            <button type="button" class="btn btn-sm btn-outline-secondary " >Недоступно</button>
+          </div >
+          <br>
+          <br>
+          {% endif %}
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+
+
+

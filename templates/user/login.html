@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="container text-center "  >
+    <br>
+    <br>
+    <img src="{% static 'img/welcome.jpg' %}"  width="312" height="212">
+    <div id="log">
+        <h1>"Ласкаво просимо на сайт IT-BOT"</h1>
+        <h2>Авторизація</h2>
+    </div>
+    <span>Права для звичайних користувачів обмежені лише переглядом інформації</span>
+    <div class="form-group " >
+        <form action="" method="post" >
+            {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+            {% for f in form %}
+            <p id="table"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}:</label><br>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+            <br>
+            {% endfor %}
+            <button class="btn btn-primary" type="submit">Вхід</button>
+        </form>
+        <br>
+        <span>Новенькі будь ласка зареєструйтеся)</span>
+        <br>
+        <br>
+        <a class="btn btn-success" href="{% url 'register' %}">Реєстрація</a>
+        <br>
+        <br>
+    </div>
+</div>
+
+
+{% endblock %}

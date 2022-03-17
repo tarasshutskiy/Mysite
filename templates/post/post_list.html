@@ -1,42 +1,38 @@
-{% extends 'base/base.html' %}
-
-
+{% extends 'base.html' %}
+{% load static %}
+{% load category_tags %}
 
 
 {% block content %}
 
 
+<header id="headerwrap">
+  {% include 'base/header.html' %}
+</header>
 
-        <div class="container ">
-            <div class="row ">
+<div id="lg">
+  {% include 'category/category.html' %}
+</div>
 
-        {% for post in post_list %}
-            <div class="col-md-4 mx-auto ">
-                <div class="card mb-4 shadow-sm" id="box">
-                    <a href="{{ post.get_absolute_url }}">
-                    <img src="{{ post.image_post.url }}" width="100%" height="255">
-                        </a>
-                        <div class="card-body ">
-                            <ul class="list-unstyled">
-                                <li><h1 class="card-text clip" style="color: #00FF00;">{{ post.name }}</h1></li>
-                                <li><p class="card-text  text-dark clip">{{ post.category }}</p></li>
-                                <li><p class="card-text clip">{{ post.description }}</p></li>
-                            </ul>
-                        <div class="d-flex justify-content-between align-items-center">
-                            {% if request.user.is_staff %}
-                        <div class="btn-group ">
-                            <button type="button" class="btn btn-sm btn-outline-secondary " style="background-color: #79F8F8;"><a class="text-dark" href="{% url 'post_edit' post.slug %}">Редагувати</a></button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary" style="background-color: #FF0000;"><a  class="text-dark" href="{% url 'post_delete' post.slug %}">Видалити</a></button>
-                        </div >
-                            {% endif %}
-                        <small class="text-muted ">{{ post.time_create }}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            </div>
-        </div>
+<section class="container w">
+  {% include 'base/section.html' %}
+</section>
+
+<main id="dg">
+  {% include 'base/main.html' %}
+</main>
+
+<aside id="pag">
+  {% include 'base/paginator.html' %}
+</aside>
+
+<section class="container wb">
+  {% include 'base/section2.html' %}
+</section>
+
+<section id="r">
+  {% include 'base/section3.html' %}
+</section>
 
 
 {% endblock %}

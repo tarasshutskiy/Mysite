@@ -13,9 +13,9 @@ import os
 from pathlib import Path
 import dj_database_url
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -32,10 +32,11 @@ ALLOWED_HOSTS = ['mysiteblogdjango.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'debug_toolbar',
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
     'api.apps.ApiConfig',
-    
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'debug_toolbar',
+
+
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.request',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -88,13 +91,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ddqvgi6v27dvse',
-        'USER': 'mwtbpyspfmwmbk',
-        'PASSWORD': '3368fdbd3f9cb0ec379a2dc0b812ddba4a926682ccb77d6fc141719d2640a8bc',
-        'HOST': 'ec2-63-32-7-190.eu-west-1.compute.amazonaws.com',
+        'NAME': 'dack8q466272oi',
+        'USER': 'dspjutttcgxpfu',
+        'PASSWORD': '8d3c9ddadb3f588d63ea3241543da26c0d842db910ab1277cbab6c24e6c3994c',
+        'HOST': 'ec2-34-250-16-127.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -156,3 +166,10 @@ INTERNAL_IPS = [
     "mysiteblogdjango.herokuapp.com",
     '127.0.0.1'
 ]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': BASE_DIR / 'mysite_cache',
+    }
+}

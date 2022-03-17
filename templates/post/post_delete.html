@@ -1,20 +1,15 @@
-{% extends 'base/base.html' %}
+{% extends 'base.html' %}
 
 
 {% block content %}
 
-    <div class="container">
-      <h1>Видалити пост?</h1><br>
-
-      <form action="" method="post" >
-
-          {% csrf_token %}
-            <p>Ви дійсно хочете видалити цей пост?</p>
-
-            <button type="submit" class="btn btn-danger">Видалити пост</button>
-
-      </form>
-    </div>
-
+<div class="container text-center" id="delete">
+    <h1>Видалити пост?</h1><br>
+    <form action="" method="post" >
+        {% csrf_token %}
+        <p><span>Ви дійсно хочете видалити цей пост?</span></p>
+        <button type="submit" class="btn btn-danger">Видалити пост</button>
+    </form>
+</div>
 
 {% endblock %}

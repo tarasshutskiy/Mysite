@@ -1,41 +1,52 @@
-{% extends 'base/base.html' %}
-
+{% extends 'base.html' %}
+{% load static %}
 
 
 
 {% block content %}
-<hr class="featurette-divider">
 
- <div class="container marketing">
- <div class="row featurette">
-     <div class="col-md-5 order-md-1">
-            <img src="{{post_detail.image_cod.url}}" width="450" height="450">
-        </div>
-      <div class="col-md-7">
-        <h1 class="featurette-heading clip">{{ post_detail.name }}<br></h1>
-            <span class="text-muted">Код команти в зображенні</span><br>
-    <div>
-        <h4>Описання:<br>{{ post_detail.description }}</h4>
+<div class="container truncate-text" id="box">
+    <div class="featurette text-center" id="card">
+        <img src="{% static 'img/logo.png' %}" class="bd-placeholder-img rounded-circle" width="400" height="400" >
+        <h1 class="featurette-heading ">{{ post_detail.name }} <br></h1>
+        <hr class="featurette-divider">
     </div>
-      </div>
-
+    <div class=" text-center ">
+        <h2 class="featurette-heading  text-center">Описання<br></h2>
+        <div >
+            <h4>-<br>{{ post_detail.description }}</h4>
+        </div>
     </div>
     <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-5 order-md-1">
-            <img src="{{post_detail.image_res.url}}" width="450" height="450">
+    <div class="featurette ">
+        <h2 class="featurette-heading clip text-center">Код команди! <br></h2>
+        <br>
+        <div class = "title_code  text-center">
+            <h3>Приклад</h3>
         </div>
-        <div class="col-md-7 order-md-2">
-            <h1 class="featurette-heading clip">{{ post_detail.name }} <br>
-                <span class="text-muted">Результат виконання команди.</span></h1>
-         <div class = "title_code  text-center"><h3>Приклад</h3></div> <pre><code class="python">{{post_detail.description_cod}}</code></pre>
-        </div>
+        <pre><code class="python">{{post_detail.description_cod}}</code></pre>
     </div>
-   <hr class="featurette-divider">
- </div>
-
-
-
-
+    <hr class="featurette-divider">
+    <p class="featurette-heading ">"Дата і час створення" : {{ post_detail.time_create|date:"d-m-Y H:i:s" }}<br></p>
+    <p class="featurette-heading ">"Дата і час останього оновлення" : {{post_detail.time_update}}<br></p>
+</div>
+<div class="container truncate-text" id="comment">
+    <h2 class="text-center">Добавити коментарій </h2>
+    <br>
+    <form class="form-label" action="#" method="post" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Добавити Коментар</button>
+        </div>
+    </form>
+    <hr class="featurette-divider">
+    <h3>Коментарі:</h3>
+    {% for comment in post_detail.comments.all %}
+    <h3><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{comment.author}}</h3><span class="featurette-heading  text-center"> {{comment.comment}}</span>
+    <p><span class="featurette-heading ">"Дата і час створення" : {{ comment.time_create|date:"d-m-Y H:i:s" }}<br></span></p>
+    <hr class="featurette-divider">
+    {% endfor %}
+</div>
 
 {% endblock %}
