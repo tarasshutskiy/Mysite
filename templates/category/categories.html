@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cache %}
 
 
 
@@ -9,14 +10,18 @@
 <div id="headerwrap">
     {% include 'base/header.html' %}
 </div>
+
+{% cache 30 div %}
 <div id="lg">
-    {% include 'category/category.html' %}
+  {% include 'category/category.html' %}
 </div>
+{% endcache %}
 
 <section class="container w">
     {% include 'base/section.html' %}
 </section>
 
+{% cache 30 main %}
 <main id="dg">
     <div class="container">
         <div class="row centered">
@@ -51,6 +56,7 @@
         </div>
     </div>
 </main>
+{% endcache %}
 
 <aside id="pag">
     {% include 'base/paginator.html' %}

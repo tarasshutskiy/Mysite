@@ -2,6 +2,7 @@
 {% load category_tags %}
 
 <div class="container  ">
+    {% if request.user.is_authenticated %}
     <h4><i class="fa fa-clipboard" aria-hidden="true"></i>Категорії<i class="fa fa-clipboard" aria-hidden="true"></i></h4>
     <br>
     <br>
@@ -9,13 +10,13 @@
     <div class="row truncate-text">
         {% get_list_category as categories %}
         {% for category in categories %}
-        {% if request.user.is_authenticated %}
+
         <div class="col-lg-4 truncate-text">
             <a href="{{ category.get_absolute_url  }}"  class="btn btn-lg btn-info"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i><h3>{{category.name}}</h3></i></a>
             <br>
             <br>
         </div>
-        {% endif %}
         {% endfor %}
     </div>
+    {% endif %}
 </div>
