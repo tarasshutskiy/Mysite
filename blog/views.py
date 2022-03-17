@@ -28,7 +28,7 @@ class PostListView(ListView):
         if query:
             post_list = Post.objects.filter(
                 name__icontains=query,
-                is_published=True).select_related('category', 'author', 'user')
+                is_published=True).select_related('category',)
             return post_list
         else:
             post_list = Post.objects.filter(is_published=True).select_related('category').order_by('-time_create')
