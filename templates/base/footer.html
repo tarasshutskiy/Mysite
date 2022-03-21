@@ -1,9 +1,29 @@
-{% load static %}
+{% load static i18n %}
 
 <div class="container">
     <div class="row centered">
         <a href="https://github.com/tarasshutskiy"><i class="fa fa-github" aria-hidden="true"></i></a>
         <a href="https://www.linkedin.com/in/тарас-шуцький-58728b217/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
         <a href="https://www.instagram.com/tas.sulll/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
+</div>
+<div class="container text-center" >
+    <div class="">
+    <form id="" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        <select class="form-control" name="language">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.code }}
+            </option>
+            {% endfor %}
+        </select>
+        <div id="go">
+        <input  class="btn btn-lg btn-success" type="submit" value="Go">
+        </div>
+    </form>
     </div>
 </div>

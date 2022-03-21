@@ -6,8 +6,7 @@ from django.core.exceptions import ValidationError
 class AddPostForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['category'].empty_label = "Виберіть категорію"
-
+        self.fields['category'].empty_label = "Select a category"
 
     class Meta:
         model = Post
@@ -15,7 +14,7 @@ class AddPostForm(ModelForm):
         widgets = {
             'name': TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Назва посту',
+                'placeholder': 'Post title',
             }),
             'slug': TextInput(attrs={
                 'class': 'form-control',
@@ -25,28 +24,26 @@ class AddPostForm(ModelForm):
 
             'description': Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Описання команди',
+                'placeholder': 'Team description',
             }),
             'description_cod': Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Код команди',
+                'placeholder': 'Command code',
             }),
 
         }
 
-
-
     def clean_title(self):
         name = self.cleaned_data['name']
         if len(name) > 200:
-            raise ValidationError('Назва перевищує 200 символів')
+            raise ValidationError('The name exceeds 200 characters')
         return name
 
 
 class AddCategoryForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['name'].empty_label = "Назва Категорії"
+        self.fields['name'].empty_label = "Category Name"
 
 
     class Meta:
@@ -55,7 +52,7 @@ class AddCategoryForm(ModelForm):
         widgets = {
             'name': TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Назва категорії',
+                'placeholder': 'Category name',
             }),
             'slug': TextInput(attrs={
                 'class': 'form-control',
@@ -64,20 +61,17 @@ class AddCategoryForm(ModelForm):
             }),
         }
 
-
-
     def clean_title(self):
         name = self.cleaned_data['name']
         if len(name) > 200:
-            raise ValidationError('Назва перевищує 200 символів')
+            raise ValidationError('The name exceeds 200 characters')
         return name
-
 
 
 class UpdatePostForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['category'].empty_label = "Виберіть категорію"
+        self.fields['category'].empty_label = "Select a category"
 
     class Meta:
         model = Post
@@ -85,7 +79,7 @@ class UpdatePostForm(ModelForm):
         widgets = {
             'name': TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Назва посту',
+                'placeholder': 'Post title',
             }),
             'slug': TextInput(attrs={
                 'class': 'form-control',
@@ -95,21 +89,19 @@ class UpdatePostForm(ModelForm):
 
             'description': Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Описання команди',
+                'placeholder': 'Description of commands',
             }),
             'description_cod': Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Код команди',
+                'placeholder': 'Command code',
             }),
 
         }
 
-
-
     def clean_title(self):
         name = self.cleaned_data['name']
         if len(name) > 200:
-            raise ValidationError('Назва перевищує 200 символів')
+            raise ValidationError('The name exceeds 200 characters')
         return name
 
 
@@ -125,7 +117,7 @@ class AddCommentForm(ModelForm):
         widgets = {
             'comment': Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Вкажіть коментарій',
+                'placeholder': 'Please provide a comment',
             }),
         }
 

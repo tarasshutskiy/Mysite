@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 
 
 
@@ -7,7 +9,7 @@
 
 
 <div class="container text-center"  id="post">
-      <h1>Новий Пост</h1><br>
+      <h1>{% trans "New Post" %}</h1><br>
       <form action="{% url 'post_create' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="form-error">{{ form.non_field_errors }}</div>
@@ -16,7 +18,7 @@
           <div class="form-error">{{ f.errors }}</div><br>
           {% endfor %}
           <div>
-              <button class="btn btn-primary" type="submit">Добавити пост</button>
+              <button class="btn btn-primary" type="submit">{% trans "Add a post" %}</button>
           </div>
       </form>
 </div>

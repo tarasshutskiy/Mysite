@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
+
 
 
 {% block content %}
@@ -10,10 +11,9 @@
     <br>
     <img src="{% static 'img/welcome.jpg' %}"  width="312" height="212">
     <div id="log">
-        <h1>"Ласкаво просимо на сайт IT-BOT"</h1>
-        <h2>Авторизація</h2>
+        <h1>{% trans "'Welcome to the IT-BOT website'" %}</h1>
+        <h2>{% trans "Authorization" %}</h2>
     </div>
-    <span>Права для звичайних користувачів обмежені лише переглядом інформації</span>
     <div class="form-group " >
         <form action="" method="post" >
             {% csrf_token %}
@@ -23,13 +23,13 @@
             <div class="form-error">{{ f.errors }}</div>
             <br>
             {% endfor %}
-            <button class="btn btn-primary" type="submit">Вхід</button>
+            <button class="btn btn-primary" type="submit">{% trans "Log in" %}</button>
         </form>
         <br>
-        <span>Новенькі будь ласка зареєструйтеся)</span>
+        <span>{% trans "Newcomers please register)" %}</span>
         <br>
         <br>
-        <a class="btn btn-success" href="{% url 'register' %}">Реєстрація</a>
+        <a class="btn btn-success" href="{% url 'register' %}">{% trans "Registration" %}</a>
         <br>
         <br>
     </div>

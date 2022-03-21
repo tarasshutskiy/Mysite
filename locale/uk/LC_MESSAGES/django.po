@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: .\templates\post\post_detail.html:3
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-21 17:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: .\config\settings.py:146
+msgid "English"
+msgstr "English"
+
+#: .\config\settings.py:147
+msgid "Ukraine"
+msgstr "Українська"
+
+#: .\templates\base\header.html:7
+msgid "Welcome to my website!"
+msgstr "Ласкаво просимо на мій сайт!"
+
+#: .\templates\base\main.html:10 .\templates\category\categories.html:28
+msgid "POSTS"
+msgstr "ПОСТИ"
+
+#: .\templates\base\main.html:23 .\templates\category\categories.html:41
+msgid "Edit"
+msgstr "Редагувати"
+
+#: .\templates\base\main.html:24 .\templates\category\categories.html:42
+msgid "Remove"
+msgstr "Видалити"
+
+#: .\templates\base\nav.html:19
+msgid "Sign in"
+msgstr "Увійти"
+
+
+#: .\templates\base\nav.html:20
+msgid "Sign up"
+msgstr "Зареєструватися"
+
+
+#: .\templates\base\section.html:11 .\templates\base\section.html:27
+msgid "Add Post"
+msgstr "Додати допис"
+
+#: .\templates\base\section.html:12 .\templates\base\section.html:28
+msgid "To create a post, click on the 'plus' and enter all the necessary parameters"
+msgstr "Щоб створити допис, натисніть на «плюс» і введіть усі необхідні параметри"
+
+#: .\templates\base\section.html:16
+msgid "Add Category"
+msgstr "Додати категорію"
+
+#: .\templates\base\section.html:17
+msgid "To create a category, click on the 'plus' and enter all the necessary parameters"
+msgstr "Щоб створити категорію, натисніть на «плюс» і введіть усі необхідні параметри"
+
+#: .\templates\base\section.html:21
+msgid "API"
+msgstr "API"
+
+#: .\templates\base\section.html:22
+msgid "To view the information, follow the link"
+msgstr "Щоб переглянути інформацію, перейдіть за посиланням"
+
+#: .\templates\base\section2.html:8
+msgid "This site was created by such programs"
+msgstr "Цей сайт створено такими програмами"
+
+#: .\templates\base\section3.html:6
+msgid "You can view the full working code and download the repository at this link"
+msgstr "Ви можете переглянути повний робочий код і завантажити репозиторій за цим посиланням"
+
+#: .\templates\category\categories.html:48
+msgid "Author:"
+msgstr "Автор:"
+
+#: .\templates\category\category.html:6
+msgid "CATEGORIES"
+msgstr "КАТЕГОРІЇ"
+
+#: .\templates\category\category_create.html:11
+msgid "New Category"
+msgstr "Нова категорія"
+
+#: .\templates\category\category_create.html:21
+msgid "Create a category"
+msgstr "Створіть категорію"
+
+#: .\templates\post\post_create.html:12
+msgid "New Post"
+msgstr "Новий пост"
+
+#: .\templates\post\post_create.html:21
+msgid "Add a post"
+msgstr "Додати допис"
+
+#: .\templates\post\post_delete.html:8
+msgid "Delete"
+msgstr "Видалити"
+
+#: .\templates\post\post_delete.html:11
+msgid "Are you sure you want to delete this post?"
+msgstr "Ви впевнені, що хочете видалити цю публікацію?"
+
+#: .\templates\post\post_delete.html:12
+msgid "Delete post"
+msgstr "Видалити допис"
+
+#: .\templates\post\post_detail.html:14
+msgid "Description"
+msgstr "Опис"
+
+#: .\templates\post\post_detail.html:21
+msgid "Code!"
+msgstr "Код!"
+
+#: .\templates\post\post_detail.html:24
+msgid "Example"
+msgstr "Приклад"
+
+#: .\templates\post\post_detail.html:29 .\templates\post\post_detail.html:46
+msgid "Date and time of creation:"
+msgstr "Дата і час створення:"
+
+#: .\templates\post\post_detail.html:30
+msgid "Date and time of last update:"
+msgstr "Дата та час останнього оновлення:"
+
+#: .\templates\post\post_detail.html:33
+msgid "Comments"
+msgstr "Коментарі"
+
+#: .\templates\post\post_detail.html:39
+msgid "Add a comment"
+msgstr "Додати коментар"
+
+#: .\templates\post\post_detail.html:43
+msgid "Comments:"
+msgstr "Коментарі:"
+
+#: .\templates\post\post_edit.html:10
+msgid "Update Post"
+msgstr "Оновити допис"
+
+#: .\templates\post\post_edit.html:19
+msgid "Update"
+msgstr "Оновлення"
+
+#: .\templates\user\login.html:14
+msgid "'Welcome to the IT-BOT website'"
+msgstr "«Ласкаво просимо на веб-сайт IT-BOT»"
+
+#: .\templates\user\login.html:15
+msgid "Authorization"
+msgstr "Авторизація"
+
+#: .\templates\user\login.html:26
+msgid "Log in"
+msgstr "Увійти"
+
+
+#: .\templates\user\login.html:29
+msgid "Newcomers please register)"
+msgstr "Новачки просимо реєструватися)"
+
+#: .\templates\user\login.html:32 .\templates\user\register.html:9
+msgid "Registration"
+msgstr "Реєстрація"
+
+#: .\templates\user\register.html:18
+msgid "Register"
+msgstr "Реєстрація"

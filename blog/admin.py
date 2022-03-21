@@ -1,5 +1,6 @@
 from django.contrib import admin
 from . import models
+from modeltranslation.admin import TranslationAdmin
 
 # Register your models here.
 
@@ -10,12 +11,14 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
     prepopulated_fields = {"slug": ("name",)}
     search_fields = ('name',)
+    save_on_top = True
 
 
 @admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['post', 'comment', 'author']
     search_fields = ('post',)
+    save_on_top = True
 
 
 class CommentInline(admin.TabularInline):
@@ -23,7 +26,7 @@ class CommentInline(admin.TabularInline):
 
 
 @admin.register(models.Post)
-class InstructionAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
     list_display = ['id', 'author', 'name', 'category', 'time_create', 'time_update', 'is_published', ]
     list_display_links = ('author', 'name')
     prepopulated_fields = {"slug": ("name",)}
@@ -33,5 +36,6 @@ class InstructionAdmin(admin.ModelAdmin):
     inlines = [
         CommentInline,
     ]
-
+    save_on_top = True
+    save_as = True
 

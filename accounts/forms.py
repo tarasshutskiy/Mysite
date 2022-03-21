@@ -10,7 +10,7 @@ class RegisterUserForm(UserCreationForm):
         widgets = {
             'username': TextInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'Логін',
+                'placeholder': 'Login',
             }),
             'email': EmailInput(attrs={
                 'class': 'form-input',
@@ -18,12 +18,12 @@ class RegisterUserForm(UserCreationForm):
             }),
             'password1': PasswordInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'Пароль',
+                'placeholder': 'Password',
 
             }),
-
             'password2': PasswordInput(attrs={
                 'class': 'form-input',
+                'placeholder': 'Password confirmation',
             }),
 
         }

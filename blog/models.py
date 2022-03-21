@@ -8,12 +8,12 @@ from config import settings
 
 class Category(models.Model):
     """Категорії"""
-    name = models.CharField('Категорія', max_length=35)
+    name = models.CharField('Category', max_length=35)
     slug = models.SlugField('Slug', max_length=200, unique=True, db_index=True)
 
     class Meta:
-        verbose_name = "Категорія"
-        verbose_name_plural = "Категорії"
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
     def __str__(self):
         return self.name
@@ -24,23 +24,23 @@ class Category(models.Model):
 
 class Post(models.Model):
     """Модель для поста"""
-    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Автор')
-    name = models.CharField("Пост", max_length=35)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Author')
+    name = models.CharField("Post", max_length=35)
     slug = models.SlugField(max_length=200, unique=True, db_index=True)
-    description = models.TextField('Описання', blank=True)
-    description_cod = models.TextField('Описання коду', blank=True)
+    description = models.TextField('Description', blank=True)
+    description_cod = models.TextField('Description code', blank=True)
     category = models.ForeignKey(
         Category,
         on_delete=models.PROTECT,
-        verbose_name="Категорія"
+        verbose_name="Category"
     )
-    time_create = models.DateTimeField("Дата і час створення", auto_now_add=True)
-    time_update = models.DateTimeField("Дата і час публікації", auto_now_add=True)
-    is_published = models.BooleanField(default=True, verbose_name='Публікація')
+    time_create = models.DateTimeField("Date and time of creation", auto_now_add=True)
+    time_update = models.DateTimeField("Date and time of last update", auto_now_add=True)
+    is_published = models.BooleanField(default=True, verbose_name='Publication')
 
     class Meta:
-        verbose_name = "Пост"
-        verbose_name_plural = "Пости"
+        verbose_name = "Post"
+        verbose_name_plural = "Posts"
 
     def __str__(self):
         return self.name
@@ -52,20 +52,20 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE,
-        verbose_name='Пост',
+        verbose_name='Post',
         related_name='comments'
     )
-    comment = models.CharField(max_length=150, verbose_name='Коментар')
+    comment = models.CharField(max_length=150, verbose_name='Comment')
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name='Автор',
+        verbose_name='Author',
     )
-    time_create = models.DateTimeField("Дата і час створення", auto_now_add=True)
+    time_create = models.DateTimeField("Date and time of creation", auto_now_add=True)
 
     class Meta:
-        verbose_name = "Коментарій"
-        verbose_name_plural = "Коментарі"
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
 
     def __str__(self):
         return self.comment

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 {% load category_tags %}
 
 
@@ -7,7 +7,7 @@
 
   <div class="container">
       <div class="row centered">
-        <h4><i class="fa fa-clipboard" aria-hidden="true"></i>Пости<i class="fa fa-clipboard" aria-hidden="true"></i></h4>
+        <h4><i class="fa fa-clipboard" aria-hidden="true"></i>{% trans "POSTS" %}<i class="fa fa-clipboard" aria-hidden="true"></i></h4>
         <br>
         <br>
         <br>
@@ -16,19 +16,23 @@
           <div class="tilt">
             <a href="{{ post.get_absolute_url }}"><img  src="{% static 'img/logo.png' %}" alt="" width="200" height="200"></a>
           </div>
-          <h2>{{ post.name }}</h2>
+          <h2>"{{ post.name }}"</h2>
           {% if request.user.is_authenticated %}
           {% if request.user == post.author or request.user.is_staff %}
           <div class="btn-group text-center">
-            <button type="button" class="btn btn-sm btn-outline-secondary btn-info" ><a class="text-dark" href="{% url 'post_edit' post.slug %}">Редагувати</a></button>
-            <button type="button" class="btn btn-sm btn-outline-secondary btn-danger"><a  class="text-dark" href="{% url 'post_delete' post.slug %}">Видалити</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-info" ><a class="text-dark" href="{% url 'post_edit' post.slug %}">{% trans "Edit" %}</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-danger"><a  class="text-dark" href="{% url 'post_delete' post.slug %}">{% trans "Remove" %}</a></button>
           </div >
+          <br>
+          <br>
           <br>
           <br>
           {% else %}
           <div class="btn-group text-center">
-            <button type="button" class="btn btn-sm btn-outline-secondary " >Недоступно</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary " >{% trans "Author:" %} '{{post.author}}'</button>
           </div >
+          <br>
+          <br>
           <br>
           <br>
           {% endif %}

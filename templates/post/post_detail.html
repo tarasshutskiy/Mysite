@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
-
-
+{% load static i18n %}
+{% trans "" %}
 
 {% block content %}
 
@@ -12,39 +11,39 @@
         <hr class="featurette-divider">
     </div>
     <div class=" text-center ">
-        <h2 class="featurette-heading  text-center">Описання<br></h2>
+        <h2 class="featurette-heading  text-center">{% trans "Description" %}<br></h2>
         <div >
             <h4>-<br>{{ post_detail.description }}</h4>
         </div>
     </div>
     <hr class="featurette-divider">
     <div class="featurette ">
-        <h2 class="featurette-heading clip text-center">Код команди! <br></h2>
+        <h2 class="featurette-heading clip text-center">{% trans "Code!" %}<br></h2>
         <br>
         <div class = "title_code  text-center">
-            <h3>Приклад</h3>
+            <h3>{% trans "Example" %}</h3>
         </div>
         <pre><code class="python">{{post_detail.description_cod}}</code></pre>
     </div>
     <hr class="featurette-divider">
-    <p class="featurette-heading ">"Дата і час створення" : {{ post_detail.time_create|date:"d-m-Y H:i:s" }}<br></p>
-    <p class="featurette-heading ">"Дата і час останього оновлення" : {{post_detail.time_update}}<br></p>
+    <p class="featurette-heading ">{% trans "Date and time of creation:" %} {{ post_detail.time_create|date:"d-m-Y H:i:s" }}<br></p>
+    <p class="featurette-heading ">{% trans "Date and time of last update:" %} {{post_detail.time_update}}<br></p>
 </div>
 <div class="container truncate-text" id="comment">
-    <h2 class="text-center">Добавити коментарій </h2>
+    <h2 class="text-center"><i class="fa fa-clipboard" aria-hidden="true"></i>{% trans "Comments" %}<i class="fa fa-clipboard" aria-hidden="true"></i></h2>
     <br>
     <form class="form-label" action="#" method="post" >
         {% csrf_token %}
         {{form.as_p}}
         <div class="text-center">
-            <button class="btn btn-primary" type="submit">Добавити Коментар</button>
+            <button class="btn btn-primary" type="submit">{% trans "Add a comment" %}</button>
         </div>
     </form>
     <hr class="featurette-divider">
-    <h3>Коментарі:</h3>
+    <h3>{% trans "Comments:" %}</h3>
     {% for comment in post_detail.comments.all %}
     <h3><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{comment.author}}</h3><span class="featurette-heading  text-center"> {{comment.comment}}</span>
-    <p><span class="featurette-heading ">"Дата і час створення" : {{ comment.time_create|date:"d-m-Y H:i:s" }}<br></span></p>
+    <p><span class="featurette-heading ">{% trans "Date and time of creation:" %} {{ comment.time_create|date:"d-m-Y H:i:s" }}<br></span></p>
     <hr class="featurette-divider">
     {% endfor %}
 </div>

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 
 
@@ -7,7 +8,7 @@
 
 
 <div class="container text-center" id="category_create" >
-    <h1>Нова Категорія</h1><br>
+    <h1>{% trans "New Category"%}</h1><br>
     <div class="form-group " >
         <form action="{% url 'category_create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -17,7 +18,7 @@
             <div class="form-error">{{ f.errors }}</div>
             {% endfor %}
             <div>
-                <button class="btn btn-primary" type="submit">Створити категорію</button>
+                <button class="btn btn-primary" type="submit">{% trans "Create a category"%}</button>
             </div>
         </form>
     </div>

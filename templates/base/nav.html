@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 {% load category_tags %}
 
 <div class="container">
@@ -16,9 +16,12 @@
             {% if request.user.is_authenticated %}
             <li class="active"><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> {{user.username}}</a></li>
             {% else %}
-            <li class="active"><a href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a></li>
-            <li class="active" ><a href="{% url 'register' %}" id="up"><i class="fa fa-registered" aria-hidden="true"></i> Sign up</a></li>
+            <li class="active"><a href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> {% trans "Sign in" %}</a></li>
+            <li class="active" ><a href="{% url 'register' %}" id="up"><i class="fa fa-registered" aria-hidden="true"></i> {% trans "Sign up" %}</a></li>
             {% endif %}
+            <li class="active">
+
+            </li>
         </ul>
       </div>
 </div>

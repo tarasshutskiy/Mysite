@@ -1,5 +1,6 @@
-{% load static %}
+{% load static i18n %}
 {% load category_tags %}
+
 
 <div class="row centered">
     <br>
@@ -7,24 +8,24 @@
     {% if request.user.is_staff %}
     <div class="col-lg-4">
         <a href="{% url 'post_create' %}" class="btn btn-lg btn-success" ><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
-        <h4>Додати Пост</h4>
-        <span>Для створення поста нажміть на "плюсик" всі потрібні параметри </span>
+        <h4>{% trans  "Add Post"%}</h4>
+        <span>{% trans  "To create a post, click on the 'plus' and enter all the necessary parameters"%}</span>
     </div>
     <div class="col-lg-4">
         <a href="{% url 'category_create' %}" class="btn btn-lg btn-success" ><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
-        <h4>Додати Категорію</h4>
-        <span>Для створення категорії нажміть на "плюсик" всі потрібні параметри</span>
+        <h4>{% trans  "Add Category"%}</h4>
+        <span>{% trans  "To create a category, click on the 'plus' and enter all the necessary parameters"%}</span>
     </div>
     <div class="col-lg-4">
         <a href="{% url 'api' %}" class="btn btn-lg btn-success" ><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
-        <h4>API</h4>
-        <span>Для перегляду інформації перейдіть за посиланням</span>
+        <h4>{% trans  "API"%}</h4>
+        <span>{% trans  "To view the information, follow the link"%}</span>
     </div>
     {% else %}
     <div class="text-center">
         <a href="{% url 'post_create' %}" class="btn btn-lg btn-success" ><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
-        <h4>Додати Пост</h4>
-        <span>Для створення поста нажміть на "плюсик" всі потрібні параметри</span>
+        <h4>{% trans  "Add Post"%}</h4>
+        <span>{% trans  "To create a post, click on the 'plus' and enter all the necessary parameters"%}</span>
     </div>
     {% endif %}
 </div>
