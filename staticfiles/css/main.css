@@ -18,7 +18,9 @@ span, label {
     color: rgb(255, 255, 255);
 }
 
-
+#lang {
+    width: 50px;
+}
 
 h1, h2, h3, h4, h6, h6 {
     font-family: 'Lato' ;
@@ -192,6 +194,11 @@ hr {
 
 
 }
+
+#go{
+    align-items: center;
+}
+
 
 #f i {
     color: #bdbdbd;
