@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Raleway:ital,wght@1,200&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:wght@500&display=swap');
 
 body {
     background: url(../img/fon.jpg) no-repeat center top;
-    font-family: 'Raleway';
+    font-family: 'Open+Sans';
     font-weight: 300;
     font-size: 16px;
     color: #555;
@@ -23,7 +22,7 @@ span, label {
 }
 
 h1, h2, h3, h4, h6, h6 {
-    font-family: 'Lato' ;
+    font-family: 'Roboto' ;
     font-weight: 300;
     color: #333;
 }
@@ -313,5 +312,14 @@ hr {
 .truncate-text {
     word-wrap: break-word;
     word-break: break-all; /* более приоритетно */
+}
+
+
+pre {
+    overflow-x: auto;
+}
+pre code {
+    overflow-wrap: normal;
+    white-space: pre;
 }
 
